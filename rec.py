@@ -9,6 +9,7 @@ from confluent_kafka import Consumer, KafkaError
 import json
 import threading
 import queue
+import torch
 
 # Kafka Consumer configuration
 conf = {
@@ -34,6 +35,7 @@ def load_hindi_words(csv_file):
     df = pd.read_csv(csv_file, header=None)
     return df[0].tolist()
 
+
 # Function to load English profanity words from a CSV
 def load_english_words(csv_file):
     df = pd.read_csv(csv_file, header=None)
@@ -50,7 +52,7 @@ malicious_words = ["STARTUP", "PLAN", "Kind", "Hello", "bye"] + load_hindi_words
 
 # Initialize Kafka Consumer
 consumer = Consumer(conf)
-consumer.subscribe(['barde2'])
+consumer.subscribe(['barde'])
 
 # Buffer for frames and last sequence number
 frame_queue = queue.Queue(maxsize=10)  # Use a Queue with limited size to control frame flow

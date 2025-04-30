@@ -1,3 +1,4 @@
+#title abstrac breef methedology result
 #ver 1.2
 import cv2
 import base64
@@ -15,7 +16,7 @@ conf = {
     'client.id': 'video-frame-producer'
 }
 producer = Producer(conf)
-topic = 'barde'
+topic = 'barde2'
 
 def acked(err, msg):
     if err is not None:
